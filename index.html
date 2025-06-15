@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construindo um Futuro no Serviço Social</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2e8540',
+                        secondary: '#1a5276',
+                        accent: '#e67e22',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(46, 133, 64, 0.1) 0%, rgba(26, 82, 118, 0.1) 100%);
+        }
+        
+        .btn-pulse {
+            animation: pulse-slow 2s infinite;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+        
+        .floating-item {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-item:nth-child(2) {
+            animation-delay: 1s;
+        }
+        
+        .floating-item:nth-child(3) {
+            animation-delay: 2s;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .countdown-box {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 10px 20px rgba(192, 57, 43, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-hands-helping text-3xl text-secondary mr-3"></i>
+                <span class="text-xl font-bold text-secondary">Serviço Social Prático</span>
+            </div>
+            <a href="#cta-final" class="hidden md:block bg-primary hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition-all transform hover:scale-105 shadow-md btn-pulse">
+                GARANTIR MEU ACESSO
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 hero-gradient">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-10 lg:mb-0 animate-on-scroll" style="transform: translateY(50px);">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary mb-6 leading-tight">
+                    <span class="text-primary">🎓 Está Começando na Área de Serviço Social?</span> Ou Já Atua e Quer Se Destacar de Vez?
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8">
+                    Descubra como transformar sua jornada no Serviço Social com um guia prático, completo e feito por quem vive a profissão todos os dias!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#offer" class="bg-primary hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg btn-pulse text-center">
+                        👉 QUERO CONSTRUIR MEU FUTURO AGORA
+                    </a>
+                    <div class="flex items-center justify-center bg-white rounded-full shadow-md py-2 px-6">
+                        <i class="fas fa-star text-yellow-500 mr-2"></i>
+                        <span class="text-gray-700 font-semibold">+1500 profissionais transformadas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 flex justify-center animate-on-scroll" style="transform: translateY(50px);">
+                <div class="relative">
+                    <img src="https://i.ibb.co/yngWkhxV/Perfil.png" alt="Profissional de Serviço Social" class="rounded-2xl shadow-2xl w-full max-w-lg border-4 border-white">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <img src="https://i.ibb.co/yngWkhxV/Perfil.png" alt="Elieny Vieira" class="w-12 h-12 rounded-full border-2 border-primary mr-3">
+                            <div>
+                                <p class="font-bold text-secondary">Elieny Vieira</p>
+                                <p class="text-sm text-gray-600">Assistente Social</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Presentation -->
+    <section id="product" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb**I'll continue the landing page from where it left off:
+
+```html**-12 animate-on-scroll" style="transform: translateY(50px);">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Tudo Que Você Precisa para <span class="text-primary">Se Destacar</span> no Serviço Social
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Elieny Vieira, Assistente Social com mais de 5 anos de experiência e pós-graduação em Saúde Pública, reuniu tudo que você precisa para dar os primeiros passos ou se destacar no Serviço Social!
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center mt-16">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 animate-on-scroll" style="transform: translateX(-50px);">
+                    <div class="relative max-w-lg mx-auto">
+                        <img src="https://i.ibb.co/qbxpg1w/bonus-image.png" alt="Ebook Serviço Social" class="rounded-xl shadow-xl w-full border-4 border-white floating-item">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-3 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-center w-16 h-16 bg-primary rounded-lg">
+                                <i class="fas fa-file-word text-3xl text-white"></i>
+                            </div>
+                            <p class="text-xs font-semibold mt-2 text-center">Documentos Editáveis</p>
+                        </div>
+                        <div class="absolute -top-6 -right-6 bg-white p-3 rounded-lg shadow-lg">
+                            <div class="flex items-center justify-center w-16 h-16 bg-accent rounded-lg">
+                                <i class="fas fa-gift text-3xl text-white"></i>
+                            </div>
+                            <p class="text-xs font-semibold mt-2 text-center">Bônus Gratuitos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 animate-on-scroll" style="transform: translateX(50px);">
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-secondary mb-6">O Que Você Vai Receber:</h3>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4">
+                                <i class="fas fa-book text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Ebook "Construindo um Futuro no Serviço Social"</h4>
+                                <p class="text-gray-600">Guia completo com tudo que você precisa saber para iniciar ou se destacar na profissão.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4">
+                                <i class="fas fa-folder-open text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">Kit Profissional Completo</h4>
+                                <p class="text-gray-600">8 documentos editáveis prontos para usar no seu dia a dia profissional.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4">
+                                <i class="fas fa-star text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-800">4 Bônus Exclusivos</h4>
+                                <p class="text-gray-600">Materiais complementares para você se destacar ainda mais na área.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-primary/10 border-l-4 border-primary p-4 rounded-r-lg mb-8">
+                            <div class="flex items-center">
+                                <div class="mr-4">
+                                    <p class="text-gray-500 line-through text-lg">De R$ 147,00</p>
+                                    <p class="font-bold text-3xl text-primary">Por apenas R$ 67,00</p>
+                                </div>
+                                <div class="bg-white rounded-lg p-2 text-center">
+                                    <p class="text-xs font-semibold">OU 12x DE</p>
+                                    <p class="font-bold text-secondary">R$ 6,58</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#offer" class="block w-full bg-primary hover:bg-green-700 text-white font-bold py-4 px-6 rounded-full text-center text-lg transition-all transform hover:scale-105 shadow-lg btn-pulse">
+                            🔥 EU QUERO MEU MATERIAL AGORA
+                        </a>
+                        
+                        <div class="flex justify-center mt-4">
+                            <img src="https://via.placeholder.com/300x50?text=Compra+100%+Segura" alt="Métodos de pagamento" class="h-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-on-scroll" style="transform: translateY(50px);">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    O Que as Pessoas Estão Dizendo
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Veja como este material já transformou a vida profissional de mais de 1.500 pessoas
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 animate-on-scroll" style="transform: translateY(50px);">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Rafaela Costa" class="w-12 h-12 rounded-full border-2 border-primary mr-4">
+                        <div>
+                            <p class="font-bold text-secondary">Rafaela Costa</p>
+                            <p class="text-sm text-gray-600">Estudante de Serviço Social</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Nunca imaginei que um conteúdo pudesse me ajudar tanto no estágio. O kit profissional é prático e salvou minha vida no campo!"
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Juliana Santos" class="w-12 h-12 rounded-full border-2 border-primary mr-4">
+                        <div>
+                            <p class="font-bold text-secondary">Juliana Santos</p>
+                            <p class="text-sm text-gray-600">Assistente Social</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Depois de anos na profissão, finalmente encontrei um material que organizou meu trabalho. Os documentos editáveis economizam horas do meu dia!"
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.3s;">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcelo Oliveira" class="w-12 h-12 rounded-full border-2 border-primary mr-4">
+                        <div>
+                            <p class="font-bold text-secondary">Marcelo Oliveira</p>
+                            <p class="text-sm text-gray-600">Concursando de Serviço Social</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "Os mapas mentais e resumos foram essenciais para minha aprovação no concurso. Material didático e muito completo!"
+                    </p>
+                    <div class="flex mt-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center animate-on-scroll" style="transform: translateY(50px);">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl text-primary font-bold mb-2">1.500+</div>
+                    <div class="text-gray-700 font-medium">Profissionais Transformadas</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl text-primary font-bold mb-2">100%</div>
+                    <div class="text-gray-700 font-medium">Conteúdo Validado por Especialistas</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-4xl text-primary font-bold mb-2">5h+</div>
+                    <div class="text-gray-700 font-medium">De Economia Semanal na Rotina</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-on-scroll" style="transform: translateY(50px);">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Tudo Que Você Vai Receber
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow animate-on-scroll" style="transform: translateY(50px);">
+                    <div class="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-book-reader text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-secondary mb-3">Ebook Principal</h3>
+                    <p class="text-gray-700 text-center">
+                        "Construindo um Futuro no Serviço Social" - Guia completo com 240 páginas de conteúdo teórico e prático.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.1s;">
+                    <div class="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-file-word text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-secondary mb-3">Kit Profissional</h3>
+                    <p class="text-gray-700 text-center">
+                        8 documentos editáveis prontos para usar: desde mapas mentais até modelos de relatórios e formulários.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.2s;">
+                    <div class="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-gift text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-secondary mb-3">Bônus 1 & 2</h3>
+                    <p class="text-gray-700 text-center">
+                        "Serviço Social em Foco" + "Desafio 7 Dias com a Profissão dos Sonhos" - Materiais exclusivos para desenvolvimento profissional.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.3s;">
+                    <div class="bg-primary/10 w-16 h-16 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas fa-gift text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-secondary mb-3">Bônus 3 & 4</h3>
+                    <p class="text-gray-700 text-center">
+                        "Caderno de Atividades Práticas" + "Checklist Semanal do Atendimento Eficaz" - Ferramentas para a rotina diária.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-4xl mx-auto bg-gray-50 rounded-2xl p-8 border-2 border-primary/20 shadow-xl animate-on-scroll" style="transform: translateY(50px);">
+                <h3 class="text-2xl font-bold text-center text-secondary mb-6">Kit Profissional Completo (Documentos Editáveis)</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Mapa mental de Serviço Social</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Guia Redação Técnica</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Agenda Semanal de Atendimento</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Projeto Social Simplificado</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Termo de Consentimento</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Parecer Técnico</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Relatório Socioeconômico</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary rounded-full p-2 mr-4">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <p class="text-gray-700 font-medium">Formulário de Entrevista Familiar</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-white rounded-lg p-4 shadow-inner">
+                    <div class="flex items-center">
+                        <div class="bg-green-100 rounded-full p-2 mr-4">
+                            <i class="fas fa-clock text-green-600"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-gray-700">Oferta por tempo limitado!</p>
+                            <p class="text-green-600 font-bold">Todos os 4 bônus gratuitos com a compra hoje</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 animate-on-scroll" style="transform: translateY(50px);">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Perguntas Frequentes
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Tire todas suas dúvidas antes de garantir seu material
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden animate-on-scroll" style="transform: translateY(50px);">
+                    <button class="accordion-btn w-full text-left p-6 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-bold text-lg text-secondary">Esse material é só para quem está estudando Serviço Social?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-6 pt-0 text-gray-700">
+                            Não! Ele é ideal tanto para iniciantes quanto para quem já atua e quer melhorar sua performance e organização no atendimento. O material foi pensado para todas as fases da carreira, desde estudantes até profissionais experientes que querem otimizar seu trabalho.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.1s;">
+                    <button class="accordion-btn w-full text-left p-6 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-bold text-lg text-secondary">Os arquivos podem ser editados?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-6 pt-0 text-gray-700">
+                            Sim! Todos os documentos do Kit Profissional vêm em formato Word e Excel, totalmente editáveis para você adaptar à sua realidade e necessidades específicas. Você pode personalizar todos os modelos com seu logo, cores institucionais e ajustar os campos conforme sua rotina profissional requer.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.2s;">
+                    <button class="accordion-btn w-full text-left p-6 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-bold text-lg text-secondary">Por que está tão barato?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-6 pt-0 text-gray-700">
+                            Essa é uma condição promocional para democratizar o acesso ao material e ajudar o máximo de profissionais possível. O valor normal do produto é R$ 147,00, mas estamos oferecendo uma condição especial por tempo limitado. Em breve, o valor voltará ao preço original. Essa é sua chance de garantir tudo por um preço que cabe no seu bolso.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.3s;">
+                    <button class="accordion-btn w-full text-left p-6 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-bold text-lg text-secondary">Quando recebo os bônus?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-6 pt-0 text-gray-700">
+                            Imediatamente após a confirmação do pagamento! Você receberá um e-mail com todos os links de download para o ebook principal, o kit profissional e os bônus. O acesso é vitalício, você pode baixar agora e consultar sempre que precisar, sem prazo para expirar. E se houver atualizações futuras, você receberá gratuitamente.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-gray-200 rounded-xl overflow-hidden animate-on-scroll" style="transform: translateY(50px); animation-delay: 0.4s;">
+                    <button class="accordion-btn w-full text-left p-6 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span class="font-bold text-lg text-secondary">Como faço para comprar?</span>
+                        <i class="fas fa-plus text-primary"></i>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="p-6 pt-0 text-gray-700">
+                            É muito simples! Basta clicar em qualquer botão "EU QUERO" nesta página e você será redirecionado para a página de compra segura. Lá você escolhe a forma de pagamento (cartão de crédito, boleto ou PIX) e preenche seus dados. Após a confirmação do pagamento, você receberá imediatamente o acesso a todos os materiais por e-mail. Todo o processo é rápido, simples e 100% seguro.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="cta-final" class="py-16 bg-primary/5">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden animate-on-scroll" style="transform: translateY(50px);">
+                <div class="p-8 sm:p-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">
+                        Transforme sua vida profissional com um investimento menor que uma pizza 🍕
+                    </h2>
+                    
+                    <div class="countdown-box text-white rounded-lg py-4 px-6 inline-block mb-8">
+                        <p class="text-sm font-semibold mb-2">OFERTA TERMINA EM:</p>
+                        <div class="flex justify-center space-x-4 text-3xl font-bold">
+                            <div>
+                                <div id="hours" class="bg-white text-red-600 rounded px-2 py-1">02</div>
+                                <p class="text-sm mt-1">Horas</p>
+                            </div>
+                            <div>
+                                <div id="minutes" class="bg-white text-red-600 rounded px-2 py-1">13</div>
+                                <p class="text-sm mt-1">Minutos</p>
+                            </div>
+                            <div>
+                                <div id="seconds" class="bg-white text-red-600 rounded px-2 py-1">44</div>
+                                <p class="text-sm mt-1">Segundos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                        Você não precisa mais estudar sozinha, perder tempo com burocracias ou começar do zero! Com este material completo, você terá tudo que precisa para se destacar na profissão.
+                    </p>
+                    
+                    <div class="bg-primary/10 rounded-xl p-6 mb-8">
+                        <div class="flex flex-col md:flex-row justify-center items-center">
+                            <div class="mb-4 md:mb-0 md:mr-8 text-center md:text-left">
+                                <p class="text-gray-500 line-through text-lg">De R$ 147,00</p>
+                                <p class="font-bold text-3xl text-primary">Por apenas R$ 67,00</p>
+                                <p class="text-sm text-gray-600">ou 12x de R$ 6,58 no cartão</p>
+                            </div>
+                            <a href="#offer" class="block w-full md:w-auto bg-primary hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg btn-pulse whitespace-nowrap">
+                                ✅ QUERO GARANTIR MEU ACESSO
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-lock text-green-600 mr-2"></i>
+                            <span class="text-sm text-gray-600">Compra 100% segura</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                            <span class="text-sm text-gray-600">7 dias de garantia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-headset text-green-600 mr-2"></i>
+                            <span class="text-sm text-gray-600">Suporte especializado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-hands-helping text-2xl text-primary mr-3"></i>
+                        <span class="text-xl font-bold">Serviço Social Prático</span>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-300">
+                        Transformando a prática profissional de assistentes sociais.
+                    </p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-300">
+                <p>© 2023 Construindo um Futuro no Serviço Social. Todos os direitos reservados.</p>
+                <p class="mt-2">Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="fixed bottom-6 right-6 z-50 animate-bounce">
+        <a href="#" class="bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Animate on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Accordion functionality
+            const accordionBtns = document.querySelectorAll('.accordion-btn');
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    const content = this.nextElementSibling;
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('fa-minus');
+                        icon.classList.add('fa-plus');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
+            });
+            
+            // Countdown timer
+            function updateCountdown() {
+                const now = new Date();
+                const hoursElement = document.getElementById('hours');
+                const minutesElement = document.getElementById('minutes');
+                const secondsElement = document.getElementById('seconds');
+                
+                let hours = 2 - now.getHours() % 2;
+                let minutes = 59 - now.getMinutes();
+                let seconds = 59 - now.getSeconds();
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Wilson1177/servico-social" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p><p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://deepsite.hf.co/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://deepsite.hf.co" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://deepsite.hf.co?remix=Wilson1177/servico-social" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
